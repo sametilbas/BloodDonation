@@ -1,0 +1,192 @@
+﻿@model IEnumerable<KBP.Models.UyeAccount>
+
+@{
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .kan {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+    <link rel="stylesheet" href="~/Css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Css/owl.carousel.css">
+    <link rel="stylesheet" href="~/Css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Css/font-awesome.min.css">
+
+    <link href="~/Css/slider.css" rel="stylesheet" />
+
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="~/Css/tooplate-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700" rel="stylesheet" />
+    <link href="~/Css/KanMerkezi.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="section">
+
+        <div class="curtain"></div>
+        <canvas id="canvas"></canvas>
+
+    </div>
+    <div id="nav-container" class="blood-text">
+        KAN MERKEZİ<br><br>
+        <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon icon-bar"></span>
+                        <span class="icon icon-bar"></span>
+                        <span class="icon icon-bar"></span>
+                    </button>
+                </div>
+                <!-- MENU LINKS -->
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="@Url.Action("LoggedIn", "KanMerkezi")" class="smoothScroll">Anasayfa</a>
+                        </li>
+                        @*<li>
+                                <a href="#about" class="smoothScroll">kan ihtiyacı</a>
+                            </li>*@
+
+                        <li id="Cıkıs"><a href="@Url.Action("Index", "Home")" class="smoothScroll">Çıkış Yap</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <br />
+    <br />
+
+    <section id="header" data-stellar-background-ratio="0.5">
+        <h4 style="font-size:large;font-weight:100;font-weight:bold;margin-left:500px; color:#369a54">BAĞIŞÇI LİSTESİ</h4>
+        <table class="table">
+            <tr>
+                <th style="font-size:large;color:brown;font-weight:100;font-weight:bold;">
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th style="font-size:large;color:brown;font-weight:100;font-weight:bold;">
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+
+                <th style="font-size:large;color:brown;font-weight:100;font-weight:bold;">
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th style="font-size:large;color:brown;font-weight:100;font-weight:bold;">
+                    @Html.DisplayNameFor(model => model.Yas)
+                </th>
+
+                <th style="font-size:large;color:brown;font-weight:100;font-weight:bold;">
+                    @Html.DisplayNameFor(model => model.Adres)
+                </th>
+                <th style="font-size:large;color:brown;font-weight:100;font-weight:bold;">
+                    @Html.DisplayNameFor(model => model.Kan_Grubu)
+                </th>
+                <th style="font-size:large;color:brown;font-weight:100;font-weight:bold;">
+                    @Html.DisplayNameFor(model => model.Tel)
+                </th>
+                <th style="font-size:large;color:brown;font-weight:100;font-weight:bold;">
+                    @Html.DisplayNameFor(model => model.Aciklama)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="font-weight:bold; font-size:medium; ">
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td style="font-weight:bold; font-size:medium;">
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td style="font-weight:bold; font-size:medium;">
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td style="font-weight:bold; font-size:medium;">
+                        @Html.DisplayFor(modelItem => item.Yas)
+                    </td>
+                    <td style="font-weight:bold; font-size:medium;">
+                        @Html.DisplayFor(modelItem => item.Adres)
+                    </td>
+                    <td style="font-weight:bold; font-size:medium;">
+                        @Html.DisplayFor(modelItem => item.Kan_Grubu)
+                    </td>
+                    <td style="font-weight:bold; font-size:medium;">
+                        @Html.DisplayFor(modelItem => item.Tel)
+                    </td>
+                    <td style="font-weight:bold; font-size:medium;">
+                        @Html.DisplayFor(modelItem => item.Aciklama)
+                    </td>
+                    <td style="font-weight:bold; font-size:larger;">
+
+                        @Html.ActionLink("Onay", "Onayım", new { bid = item.UserID, durum = item.UyeDurumu })
+                        @Html.ActionLink("Detay", "Detay", new { id = item.UserID })
+                        @Html.ActionLink("Ekle", "Ekle", new { bid = item.UserID, kid = Session["MerkezID"] })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+
+
+
+
+
+    </section>
+
+    <section id="about" data-stellar-background-ratio="0.5"></section>
+
+    <section id="Contact" data-stellar-background-ratio="0.5"></section>
+
+
+</body>
+</html>
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+<script src="//static.codepen.io/assets/common/stopExecutionOnTimeout-41c52890748cd7143004e05d3c5f786c66b19939c4500ce446314d1748483e13.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="~/Js/KanMerkezi.js"></script>
+<script src="~/Js/jquery.js"></script>
+<script src="~/Js/bootstrap.min.js"></script>
+<script src="~/Js/jquery.stellar.min.js"></script>
+<script src="~/Js/owl.carousel.min.js"></script>
+<script src="~/Js/smoothscroll.js"></script>
+<script src="~/Js/custom.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,399 @@
+﻿@model IEnumerable<KBP.Models.Duyuru>
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #ContactForm1 {
+            display: none;
+        }
+
+        #ContactForm1_contact-form-name, #ContactForm1_contact-form-email {
+            width: 300px;
+            height: auto;
+            margin: 10px auto;
+            padding: 10px;
+            background: #fdfdfd;
+            color: #666;
+            border: 1px dashed #ddd;
+            transition: all 0.5s ease-in-out;
+        }
+
+        #ContactForm1_contact-form-email-message {
+            width: 450px;
+            height: 175px;
+            margin: 10px auto;
+            padding: 10px;
+            background: #fdfdfd;
+            color: #666;
+            font-family: 'Roboto',sans-serif;
+            border: 1px dashed #ddd;
+            transition: all 0.5s ease-in-out;
+        }
+
+            #ContactForm1_contact-form-name:focus, #ContactForm1_contact-form-email:focus, #ContactForm1_contact-form-email-message:focus {
+                background: #fff;
+                outline: none;
+                border: 1px dashed #f8a82a;
+            }
+
+        #ContactForm1_contact-form-submit {
+            font-family: 'Roboto';
+            font-size: 15px;
+            width: 101px;
+            height: 35px;
+            float: left;
+            color: #fff;
+            padding: 0;
+            margin: 10px 0 3px 0;
+            cursor: pointer;
+            background: #aaa;
+            border: none;
+            border-radius: 2px;
+            transition: background 0.4s linear;
+        }
+
+            #ContactForm1_contact-form-submit:hover {
+                background: #f8a82a;
+            }
+
+        #ContactForm1_contact-form-error-message, #ContactForm1_contact-form-success-message {
+            width: 450px;
+            margin-top: 35px;
+        }
+        #d_Ad {
+            text-align: center;
+        }
+
+        body {
+            font-family: "Open Sans", sans-serif;
+            line-height: 1.25;
+        }
+
+        table {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            table-layout: fixed;
+            width: 100%;
+        }
+
+            table caption {
+                font-size: 1.5em;
+                margin: .5em 0 .75em;
+            }
+
+            table tr {
+                border: 1px solid #ddd;
+                padding: .35em;
+            }
+
+                table tr:nth-child(even) {
+                    background: #f8f8f8;
+                }
+
+            table th,
+            table td {
+                padding: .625em;
+                text-align: left;
+            }
+
+            table th {
+                background: #999;
+                color: #fff;
+                font-size: .85em;
+                letter-spacing: .1em;
+                text-transform: uppercase;
+            }
+
+            table td {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+
+
+
+
+
+
+    </style>
+    <link rel="stylesheet" href="~/Css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Css/owl.carousel.css">
+    <link rel="stylesheet" href="~/Css/owl.theme.default.min.css">
+
+    <link href="~/Css/slider.css" rel="stylesheet" />
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="~/Css/tooplate-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700" rel="stylesheet" />
+    <link href="~/Css/KanMerkezi.css" rel="stylesheet" />
+    <link href="~/Css/footer.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="section">
+
+        <div class="curtain"></div>
+        <canvas id="canvas"></canvas>
+
+    </div>
+    <div id="nav-container" class="blood-text">
+        <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon icon-bar"></span>
+                        <span class="icon icon-bar"></span>
+                        <span class="icon icon-bar"></span>
+                    </button>
+                </div>
+
+                <!-- MENU LINKS -->
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#home" class="smoothScroll">ANASAYFA</a></li>
+                        <li><a href="#duyuru" class="smoothScroll">DUYURU</a></li>
+                        <li><a href="/Home/tesvik" class="smoothScroll">TEŞVİK</a></li>
+                        <li><a href="#contact" class="smoothScroll">İLETİŞİM</a></li>
+                        <li><a href="/Hastane/Register" class="smoothScroll">HASTANE</a></li>
+                        <li><a href="/KanMerkezi/Register" class="smoothScroll">KAN MERKEZİ</a></li>
+                        <li><a href="/Bagisci/Register" class="smoothScroll">ÜYE</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <!--Slider-->
+        <section id="home" data-stellar-background-ratio="0.5">
+            <div class="container">
+
+                <div id="map" style="height: 500px; width: 1200px;"></div>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQlSkJzGpuepVdKS7XMF3E7kgnb5_jTeQ&callback=initMap"
+                        type="text/javascript"></script>
+                <script type="text/javascript">
+                    var locations = [
+                        ['Kızılay Talas Şubesi', 38.697710, 35.537330],
+                        ['Kayseri Kızılay', 38.722835, 35.468212],
+                        ['Türk Kızılayı Kan Bağışı Merkezi', 38.730520, 35.484618],
+                        ['Erciyes Üniversitesi Kan Merkezi', 38.704905, 35.525487]
+                    ];
+
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 12,
+                        center: new google.maps.LatLng(38.73122, 35.478729),
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    });
+
+                    var infowindow = new google.maps.InfoWindow();
+
+                    var marker, i;
+
+                    for (i = 0; i < locations.length; i++) {
+                        marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                            map: map
+                        });
+
+                        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                            return function () {
+                                infowindow.setContent(locations[i][0]);
+                                infowindow.open(map, marker);
+                            }
+                        })(marker, i));
+                    }
+                </script>
+
+                @*<ul class="slider">
+                    <li>
+                        <input type="radio" id="slide1" name="slide" checked>
+                        <label for="slide1"></label>
+                        <img src="~/Image/slider/img1.png" alt="Panel 1">
+                    </li>
+                    <li>
+                        <input type="radio" id="slide2" name="slide">
+                        <label for="slide2"></label>
+                        <img src="~/Image/slider/img2.png" alt="Panel 2">
+                    </li>
+                    <li>
+                        <input type="radio" id="slide3" name="slide">
+                        <label for="slide3"></label>
+                        <img src="~/Image/slider/img3.png" alt="Panel 3">
+                    </li>
+                    <li>
+                        <input type="radio" id="slide4" name="slide">
+                        <label for="slide4"></label>
+                        <img src="~/Image/slider/img4.png" alt="Panel 4">
+                    </li>
+                </ul>*@
+            </div>
+        </section>
+
+
+        <!-- DUYURU&MAP -->
+        <section id="duyuru" data-stellar-background-ratio="0.5">
+            <div class="container">
+
+                <table>
+                    <caption>DUYURULAR</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Duyuru Başlığı</th>
+                            <th scope="col">Duyuru Tarihi</th>
+                            <th scope="col">Duyuru Durumu</th>
+                            <th scope="col">Duyuru Detay</th>
+                        </tr>
+                    </thead>
+                    @if (Model.Count() == 0)
+                    {
+                        <tr>
+                            <td colspan="3">Duyuru Yok!</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var duyuru in Model)
+                        {
+
+                            <tr>
+                                <td scope="row">@duyuru.D_Ad</td>
+                                <td>@duyuru.D_Tarih</td>
+                                <td>@duyuru.D_Durumu</td>
+                                <td>@duyuru.Acıklama</td>
+                            </tr>
+
+
+                        }
+
+                    }
+
+                </table>
+            </div>
+        </section>
+
+
+        <!-- TEŞVİK -->
+        <section id="tesvik" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <br />
+                <br />
+                <br />
+            </div>
+        </section>
+
+
+
+        <!-- CONTACT -->
+        <section id="contact" data-stellar-background-ratio="0.5">
+            <div class="container">
+
+                <h4>İletişim Bilgilerimiz </h4>
+
+            </div>
+        </section>
+
+
+        <footer id="footer" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <form name="contact-form">
+                    <div style="text-align: center;">
+                        <span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><i class="fa fa-user"></i>&nbsp; İsim&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;<input id="ContactForm1_contact-form-name" name="name" size="30" type="text" value="" />
+                    </div>
+                    <div style="text-align: center;">
+                        &nbsp;<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><i class="fa fa-envelope"></i>Email Adresi<span style="color: red; font-weight: bolder;">*</span></span>
+                        <input id="ContactForm1_contact-form-email" name="email" size="30" type="text" value="" />
+                    </div>
+                    <div style="text-align: center;">
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;&nbsp;<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Mesajınız &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: red; font-weight: bolder;">*</span></span>
+                        <textarea cols="25" id="ContactForm1_contact-form-email-message" name="email-message" rows="5"></textarea>
+                    </div>
+                    <div style="text-align: center;">
+                        &nbsp;
+                        <input id="ContactForm1_contact-form-submit" type="button" value="Gönder" style="float: inherit" />
+                    </div>
+                </form>
+
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>
+<!-- SCRIPTS -->
+<script src="//static.codepen.io/assets/common/stopExecutionOnTimeout-41c52890748cd7143004e05d3c5f786c66b19939c4500ce446314d1748483e13.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="~/Js/KanMerkezi.js"></script>
+<script src="~/Js/jquery.js"></script>
+<script src="~/Js/bootstrap.min.js"></script>
+<script src="~/Js/jquery.stellar.min.js"></script>
+<script src="~/Js/owl.carousel.min.js"></script>
+<script src="~/Js/smoothscroll.js"></script>
+<script src="~/Js/custom.js"></script>
+<script src="~/Js/footer.js"></script>
+
+<script>
+
+    var Tarih = new Date();
+    console.log(Tarih);
+
+    var gun = Tarih.getDate();
+    console.log(gun);
+
+    var ay = Tarih.getMonth();
+    console.log(ay);
+
+    var tablo = document.getElementById('tablo');
+    for (var i = 0; i < tablo.rows.length; i++) {
+        var deger = tablo.rows[i].cells[1].innerHTML;
+        var arr = deger.split(".");
+        var ayd = (ay + 1) - arr[1];
+        var gund = gun - arr[0];
+        var sonuc = ayd * 30 + gund;
+        if (sonuc >= 10) {
+
+        }
+        console.log(ayd);
+    }
+    //var deger1 = tablo.rows[1].cells[1].innerHTML;
+    //var arr = deger1.split(".");
+    //console.log(arr[0]);
+    //console.log(arr[1]);
+    //console.log(arr[2]);
+    //console.log(deger1);
+
+
+
+
+
+
+
+</script>
+
+@*<@*div class="row">
+
+        <div class="col-md-offset-1 col-md-10 col-sm-12">
+            <form id="contact-form" role="form" action="" method="post">
+                <div class="section-title">
+                    <h5>Görüş ve önerilerinizi bizimle paylaşın...</h5>
+                </div>
+
+                <div class="col-md-4 col-sm-4">
+                    <input type="text" class="form-control" placeholder="İsim" name="name" required="">
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <input type="email" class="form-control" placeholder="Email" name="email" required="">
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <button type="button" class="btn btn-danger">Gönder</button>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <textarea class="form-control" rows="8" placeholder="Görüş ve önerileriniz.." name="message" required=""></textarea>
+                </div>
+            </form>
+        </div>
+
+    </div>*@

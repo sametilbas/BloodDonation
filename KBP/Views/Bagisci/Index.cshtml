@@ -1,0 +1,562 @@
+﻿@model IEnumerable<KBP.Models.UyeAccount>
+
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .portfolio-item {
+            float: left;
+        }
+
+        #tablo {
+            width: 50%;
+        }
+
+        #item6 {
+            margin-top: 180px;
+            margin-left: 40px;
+        }
+
+        #item1 {
+            background-color: khaki;
+        }
+
+        #item2 {
+            background-color: aquamarine;
+        }
+
+        #item3 {
+            background-color: lightpink;
+        }
+
+        #item7 {
+            background-color: darkgrey;
+        }
+
+        #item4 {
+            background-color: bisque;
+        }
+
+        .li {
+            list-style-type: none;
+        }
+
+        .yazı {
+            margin-top: 0px;
+            font-weight: 700;
+        }
+
+        .sıralı {
+            width: 500px;
+            height: 60px;
+            margin-right: 2.5%;
+            margin-top: 40px;
+        }
+
+        .th {
+            margin-left: 400px;
+        }
+
+        .duyuru {
+            float: left;
+        }
+
+        .active {
+            float: left;
+        }
+
+        #buton1 {
+            margin-left: 20px;
+        }
+
+        #buton {
+            margin-left: 50px;
+        }
+
+        #font {
+            margin-left: 10px;
+        }
+
+
+
+
+
+        .portfolio-item {
+            float: left;
+        }
+
+        #tablo {
+            width: 50%;
+        }
+
+        #item6 {
+            margin-top: 180px;
+            margin-left: 40px;
+        }
+
+        #item1 {
+            background-color: khaki;
+        }
+
+        #item2 {
+            background-color: aquamarine;
+        }
+
+        #item3 {
+            background-color: lightpink;
+        }
+
+        #item7 {
+            background-color: darkgrey;
+        }
+
+        #item4 {
+            background-color: bisque;
+        }
+
+        .li {
+            list-style-type: none;
+        }
+
+        .yazı {
+            margin-top: 0px;
+            font-weight: 700;
+        }
+
+        .sıralı {
+            width: 500px;
+            height: 60px;
+            margin-right: 2.5%;
+            margin-top: 40px;
+        }
+
+        .th {
+            margin-left: 400px;
+        }
+    </style>
+
+
+
+
+
+
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+    <link rel="stylesheet" href="~/Css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Css/owl.carousel.css">
+    <link rel="stylesheet" href="~/Css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Css/font-awesome.min.css">
+    <title>Font Awesome 5 Icons</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+    <link href="~/Css/slider.css" rel="stylesheet" />
+
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="~/Css/tooplate-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700" rel="stylesheet" />
+    <link href="~/Css/KanMerkezi.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/Css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Css/owl.carousel.css">
+    <link rel="stylesheet" href="~/Css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Css/font-awesome.min.css">
+
+    <link href="~/Css/slider.css" rel="stylesheet" />
+
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="~/Css/tooplate-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700" rel="stylesheet" />
+    <link href="~/Css/KanMerkezi.css" rel="stylesheet" />
+</head>
+<body onload="preventBack();">
+
+    <div class="section">
+
+        <div class="curtain"></div>
+        <canvas id="canvas"></canvas>
+
+    </div>
+    <div id="nav-container" class="blood-text">
+        BAĞIŞÇI<br><br>
+        <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon icon-bar"></span>
+                        <span class="icon icon-bar"></span>
+                        <span class="icon icon-bar"></span>
+                    </button>
+                </div>
+                <!-- MENU LINKS -->
+                <div class="collapse navbar-collapse" style="margin-left:160px;">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="#header" class="smoothScroll">Hey sen !!!</a>
+                        </li>
+                        <li>
+                            <a href="#about" class="smoothScroll">kan ihtiyacı</a>
+                        </li>
+                        <li><a href="@Url.Action("Edit","Bagisci",new {id=Session["UserID"]})" class="smoothScroll">Bilgiler</a></li>
+                        <li><a href="@Url.Action("gecmis","Bagisci",new {id=Session["UserID"],durum=Session["UyeDurumu"]})" class="smoothScroll">Geçmiş</a></li>
+                        <li id="Cıkıs"><a href="@Url.Action("Index", "Home")" class="smoothScroll">Çıkış Yap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <hr />
+    <section id="header" data-stellar-background-ratio="0.5">
+
+        <video width="1020" height="540" controls autoplay src="~/video/KAN BAĞIŞI HAYAT KURTARIR.mp4"></video>
+    </section>
+    <section id="header" data-stellar-background-ratio="0.5">
+        <h3>Türkiyedeki Kan Stok Bilgileri</h3>
+        <div class="container">
+            <h4 class="kan">O+</h4>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 37%" aria-valuenow="37" aria-valuemin="37" aria-valuemax="37">%37</div>
+            </div>
+            <h4 class="kan">O-</h4>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 7%" aria-valuenow="37" aria-valuemin="37" aria-valuemax="37">%7</div>
+            </div>
+            <h4 class="kan">A+</h4>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 35%" aria-valuenow="37" aria-valuemin="37" aria-valuemax="37">%35</div>
+            </div>
+            <h4 class="kan">A-</h4>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 7%" aria-valuenow="37" aria-valuemin="37" aria-valuemax="37">%7</div>
+            </div>
+            <h4 class="kan">B+</h4>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 8%" aria-valuenow="37" aria-valuemin="37" aria-valuemax="37">%8</div>
+            </div>
+            <h4 class="kan">B-</h4>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 2%" aria-valuenow="37" aria-valuemin="37" aria-valuemax="37">%2</div>
+            </div>
+            <h4 class="kan">AB+</h4>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 3%" aria-valuenow="37" aria-valuemin="37" aria-valuemax="37">%3</div>
+            </div>
+            <h4 class="kan">AB-</h4>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 19%" aria-valuenow="37" aria-valuemin="37" aria-valuemax="37">%19</div>
+            </div>
+            <br />
+            <br />
+
+        </div>
+    </section>
+
+    <section id="about" data-stellar-background-ratio="0.5">
+
+        @if (((int)Session["Kilo"]) >= 90)
+        {
+            <div class="container-about">
+                <div class="card" style="width: 18rem;">
+
+                    <img src="~/Image/fft16_mf3745798.Jpeg" />
+                    <div class="card-body">
+                        <h5 class="card-title">HEYY !!!</h5>
+                        <p class="card-text">Bu aralar tatlıyı fazla kaçırmış olmalısın senin için hazırladığım diyet listesini görmek ister misin</p>
+                        <a href="#diyet" class="btn btn-primary" onclick="javascript:hideShow()">Diyet listen </a>
+                    </div>
+                </div>
+            </div>
+        }
+        else if (((int)Session["Kilo"]) >= 50 || ((int)Session["Kilo"]) <= 90)
+        {
+            <div class=" duyuru">
+                <i class='fas fa-bullhorn' style='font-size:48px;color:red'></i>
+
+                <button id="buton" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                    Sence de kan bağışı için harika bir gün değil mi sahi en son ne zaman kan vermiştin
+                </button>
+                <br />
+                <br />
+            </div>
+            <br />
+            <br />
+            <br>
+            <button id="buton" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                Görüyorum ki vücut değerlerin kan vermeye çok uygun hadi birlikte birilerine umut olalım
+
+            </button>
+            <br />
+            <br />
+            <br />
+            <button id="buton" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                Harika sağlıklı bir vücudun var sana en yakın kan merkezini ziyaret etmeye ne dersin ??
+
+            </button>
+            <br />
+            <br />
+            <br>
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        else
+        {
+
+            <div class=" duyuru">
+                <i class='fas fa-bullhorn' style='font-size:48px;color:red'></i>
+
+                <button id="buton" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                    Sağlıklı beslenmeye ne dersin ?? Kan verebilmek için uygun kiloda değilsin
+                </button>
+                <br />
+                <br />
+            </div>
+            <br />
+            <br />
+            <br>
+            <button id="buton" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                Protein tüketimi sağlıklı bir şekilde kilo olmanı sağlar. Yumurta, tavuk, yeşil mercimek tüketmeye ne dersin
+            </button>
+            <br />
+            <br />
+            <br />
+            <button id="buton" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                Hem hafızanın güçlendirmek hem de kilo almak için sana haftada en az bir kez balık yemeni tavsiye ederim Hem tam da mevsimi
+            </button>
+            <br />
+            <br />
+            <br>
+            <button id="buton" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                Eğzersiz yapmak vücudunun kas kütlesini arttırır bu sayede hem sağlıklı hem de iyi bir göörüntüye sahip olabilirsin   :)
+            </button>
+            <br />
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+    </section>
+    <hr />
+    <section id="diyet" style="display:none">
+        <div>
+            <table class="table table-striped" id="tablo">
+                <thead>
+                    <tr>
+                        <th scope="col">kahvaltı</th>
+                        <th scope="col">öğle Yemeği</th>
+                        <th scope="col">Akşam yemeği</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul class="ul">
+                                <li>1 dilim peynir</li>
+                                <li>1 dilim ekmek</li>
+                                <li>Çeri domates</li>
+                                <li>Biber çeşitleri</li>
+                                <li>Salatalık</li>
+                            </ul>
+
+                        </td>
+                        <td>
+                            <ul class="ul">
+                                <li>1 kâse çorba </li>
+                                <li>1 dilim peynir</li>
+                                <li>1 yemek kaşığı yağ</li>
+                                <li>salata</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="ul">
+                                <li>1 tabak sebze yemeği</li>
+                                <li>bir kase yoğurt</li>
+                                <li>1 kase çorba</li>
+                                <li>2 Bardak su</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+
+            </table>
+        </div>
+    </section>
+
+    <section id="header2">
+
+        *@if (((int)Session["Yas"]) <= 18)
+
+        {
+
+
+            <div class="active">
+
+                <i id="font" class='fas fa-bell' style='font-size:40px;color:red'></i>
+                <button id="buton1" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                    Üzgünüm kan bağışı için 18 yaşını henüz doldurmamışsın
+                    Bir kaç sene sonra sen de ailemize katılıp kan bağışlarınla hayatlar kurtarabilirsin
+                </button>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+        }
+
+        else
+        {
+
+            <div>
+                <i class='fas fa-bell' style='font-size:40px;color:red'></i>
+                <button id="buton1" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                    Harika 18 yaşını doldurmuşsun sen de ailemize katılmaya ve hayatlar kurtarmaya ne dersin sana en yakın kan merkezimizi bul ve sen de birilerinin hayatına dokun
+                </button>
+            </div>
+        }
+    </section>
+
+    <section id="Contact" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="portfolio-item">
+                <ul>
+                    <li class="li">
+                        <div class="sıralı" id="item1">
+                            <br /><p class="icerik">
+                                <ul>
+                                    <li class="li"><h4 class="yazı"> >Su içerek yenilenmiş bir cilde sahip olabilirsin </h4></li>
+                                </ul>
+
+                            </p>
+                        </div>
+                    </li>
+                    <li class="li">
+                        <div class="sıralı" id="item2">
+                            <br /><p class="icerik">
+                                <ul>
+                                    <li class="li"><h4 class="yazı"> > Eklem ağrıların için günde 6 bardak su içmeye ne dersin</h4></li>
+                                </ul>
+
+                            </p>
+                        </div>
+                    </li>
+                    <li class="li">
+                        <div class="sıralı" id="item3">
+                            <br /><p class="icerik">
+                                <ul>
+                                    <li class="li"><h4 class="yazı"> > Ayrıca su içerek kalbimi besleyebilirsin</h4></li>
+                                </ul>
+
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="li">
+                        <div class="sıralı" id="item7">
+                            <br /><p class="icerik">
+                                <ul>
+                                    <li class="li"><h4 class="yazı"> > Karaciğer ve böbreğini koruyabilirsin</h4></li>
+                                </ul>
+
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="li">
+                        <div class="sıralı" id="item4">
+                            <br /><p class="icerik">
+                                <ul>
+                                    <li class="li"><h4 class="yazı"> > Su içmek zihni de kuvvetlendirir benden söylemesi</h4></li>
+                                </ul>
+
+                            </p>
+                        </div>
+                    </li>
+
+
+
+                </ul>
+            </div>
+
+            <div class="portfolio-item" id="item6">
+            <a href="" class="img"><img src="~/Image/B-r5u9sUIAAam4E.jpg" alt="" style="height:200px; width:400px;"/></a>
+            </div>
+        </div>
+    </section>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+</body>
+</html>
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+<script src="//static.codepen.io/assets/common/stopExecutionOnTimeout-41c52890748cd7143004e05d3c5f786c66b19939c4500ce446314d1748483e13.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="~/Js/KanMerkezi.js"></script>
+<script src="~/Js/jquery.js"></script>
+<script src="~/Js/bootstrap.min.js"></script>
+<script src="~/Js/jquery.stellar.min.js"></script>
+<script src="~/Js/owl.carousel.min.js"></script>
+<script src="~/Js/smoothscroll.js"></script>
+<script src="~/Js/custom.js"></script>
+
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+<script src="~/Js/KanMerkezi.js"></script>
+<script src="~/Js/jquery.js"></script>
+<script src="~/Js/bootstrap.min.js"></script>
+<script src="~/Js/jquery.stellar.min.js"></script>
+<script src="~/Js/owl.carousel.min.js"></script>
+<script src="~/Js/smoothscroll.js"></script>
+<script src="~/Js/custom.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    function hideShow() {
+        var getElement = document.querySelector('#diyet');
+        if (getElement.style.display == "none") {
+            getElement.style.display = "block";
+        }
+        else {
+            getElement.style.display = "none";
+        }
+    }
+</script>

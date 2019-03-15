@@ -1,0 +1,407 @@
+﻿
+@{
+    ViewBag.Title = "tesvik";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #navBar {
+            height: 50px;
+        }
+
+        .anadiv {
+            height: 500px;
+            width: 960px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        #div {
+            float: left;
+            display: inline-block;
+            height: 400px;
+            width: 450px;
+            margin: 5px;
+        }
+
+
+        .fas {
+            cursor: pointer;
+        }
+
+        .kan {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .card {
+            margin-bottom: 40px;
+            margin-top: 40px;
+            background-color: #f9967e;
+            width: 400px;
+        }
+
+        .card-text {
+            color: black;
+            font-weight: bold;
+            margin-left: 28px;
+            margin-right: 28px;
+        }
+
+        .card-header {
+            color: #f9967e;
+        }
+
+        .card1 {
+            margin-top: 40px;
+            margin-bottom: 400px;
+            margin-left: 128px;
+            margin-right: 28px;
+            background-color: bisque;
+        }
+
+
+        #content1 {
+            padding-top: 10px;
+            text-align: center;
+        }
+
+        .portfolio-item {
+            width: 40%;
+            height: 200px;
+            float: left;
+            margin-left: 50px;
+            margin-right: 2.5%;
+            margin-top: 55px;
+        }
+
+        #item5 {
+            width: 87%;
+            margin-left: 50px;
+            background-color: bisque;
+            margin-right: 2.5%;
+            margin-top: 55px;
+            height: 80px;
+        }
+
+        .icerik {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            margin-top: 40px;
+        }
+
+        #icerik5 {
+            margin-top: 65px;
+        }
+
+        #item5 {
+            height: 180px;
+        }
+
+        #item8 {
+            margin-bottom: 40px;
+        }
+
+        #item1 {
+            background-color: bisque;
+        }
+
+        #item2 {
+            background-color: bisque;
+        }
+
+        #item3 {
+            background-color: bisque;
+        }
+
+        #item4 {
+            background-color: bisque;
+        }
+
+        #item5 {
+            background-color: bisque;
+        }
+
+        #icerik3 {
+            margin-bottom: 40px;
+        }
+    </style>
+    <link href="~/Css/dikkat.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">*@
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+
+    <link rel="stylesheet" href="~/Css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Css/owl.carousel.css">
+    <link rel="stylesheet" href="~/Css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Css/font-awesome.min.css">
+    <link href="~/Css/slider.css" rel="stylesheet" />
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="~/Css/tooplate-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700" rel="stylesheet" />
+    <link href="~/Css/KanMerkezi.css" rel="stylesheet" />
+    <link href="~/Css/footer.css" rel="stylesheet" />
+    <link href="~/Css/tesvikslider.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="section">
+
+        <div class="curtain"></div>
+        <canvas id="canvas"></canvas>
+
+    </div>
+    <div id="nav-container" class="blood-text">
+        <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon icon-bar"></span>
+                        <span class="icon icon-bar"></span>
+                        <span class="icon icon-bar"></span>
+                    </button>
+                </div>
+
+                <!-- MENU LINKS -->
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav" id="navBar">
+                        <li><a href="/Home/Index" class="smoothScroll">ANASAYFA</a></li>
+                        <li><a href="#tesvik" class="smoothScroll">BAĞIŞIN FAYDALARI</a></li>
+                        <li><a href="#kim" class="smoothScroll">KİMLER VEREBİLİR</a></li>
+                        <li><a href="#dikkat" class="smoothScroll">BAĞIŞTAN ÖNCE DİKKAT!</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </section>
+        @*SLİDER*@
+        <section id="home" data-stellar-background-ratio="0.5">
+
+            <div class="container">
+                <ul class="slider">
+                    <li>
+                        <input type="radio" id="slide1" name="slide" checked>
+                        <label for="slide1"></label>
+                        <img src="~/Image/slider/img1.png" alt="Panel 1">
+                    </li>
+                    <li>
+                        <input type="radio" id="slide2" name="slide">
+                        <label for="slide2"></label>
+                        <img src="~/Image/slider/img2.png" alt="Panel 2">
+                    </li>
+                    <li>
+                        <input type="radio" id="slide3" name="slide">
+                        <label for="slide3"></label>
+                        <img src="~/Image/slider/img3.png" alt="Panel 3">
+                    </li>
+                    <li>
+                        <input type="radio" id="slide4" name="slide">
+                        <label for="slide4"></label>
+                        <img src="~/Image/slider/img4.png" alt="Panel 4">
+                    </li>
+                </ul>
+            </div>
+        </section>
+        @*bagısın faydaları*@
+        <section id="tesvik" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div id="slider1">
+                    <ul>
+                        <li>
+                            <div class="slider1-container">
+                                <h4>KAN HÜCRELERİNİ YENİLİYOR</h4>
+                                <p>Kan bağışının günlük yaşantımıza bir zararı olmadığı gibi çok önemli faydalarıda vardır.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slider1-container">
+                                <h4>KAN VEREN KİŞİDE</h4>
+                                <p>Kan veren kişide,kan yapan doku ve organlar uyarılarak yeni kan yapmaya sevk edilerek kan hücreleri yenilenmiş olur.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slider1-container">
+                                <h4>KAN VEREN KİŞİDE</h4>
+                                <p>
+                                    Kandaki fazla yağ oranın düşmesini sağlar.
+                                    İnsanı psikolojik olarak rahatlatmasının yanı sıra streside azaltır.
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slider1-container">
+                                <h4>KAN VEREN KİŞİDE</h4>
+                                <p>Karaciğer,akciğer,kalın bağırsak gibi bazı kanserlerin gelişme riskini azalttığı görülmüştür.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slider1-container">
+                                <h4>KAN VEREN KİŞİDE</h4>
+                                <p>Kan kolestrol,trigliserid,şeker ve üre,kreatin,ürik asit gibi metabolik düzeylerin normalleşmesine olumlu etkisi olduğu,metabolik hastalıkların da kontrol altında tutulmasına yardımcı olduğu gözlemlenmiştir.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slider1-container">
+                                <h4>KAN VEREN KİŞİDE</h4>
+                                <p>Vücudumuzda kemik iliğinin önemli oranda yağlanmasını önler ve kan yapımı canlı tutar.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slider1-container">
+                                <h4>KAN VEREN KİŞİDE</h4>
+                                <p>EN ÖNEMLİ FAYDALARINDAN BİRİSİDE KAN BAĞIŞLAYAN KİŞİNİN KAN TESTLERİNİN YAPILIYO OLMASI YANİ HASTALIĞINIZ VAR İSE EĞER BU TESTLER SONUCUNDA ORTAYA ÇIKACAKTIR. </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slider1-container">
+                                <h4>KAN VEREN KİŞİDE</h4>
+                                <p>Gönüllü bağışçılardan alınan kan,güvenli kan olduğundan kan yoluyla hastalık bulaşması da daha az olmaktadır.Sonuç olarak gönüllü bağışçıların sayısının artması,toplumun sağlık düzeyini olumlu etki yapmaktadır.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEŞVİK -->
+        <section id="kim" data-stellar-background-ratio="0.5">
+            <div id="content1">
+                <div class="container">
+
+                    <div id="portfolio">
+                        <div class="portfolio-item" id="item1"><br /><p class="icerik">Tc kimlik numarası olan resimli ve geçerli kimlik kartınız yanınızda olmalı.</p> </div>
+                        <div class="portfolio-item" id="item6"><br /> <a href="" class="img"><img src="~/Image/kimlik2.jpg" alt="" /></a></div>
+                        <div class="portfolio-item" id="item7"><br /><a href="" class="img"><img src="~/Image/bagis.jpg" alt="" /></a></div>
+                        <div class="portfolio-item" id="item2"><br /><p class="icerik">Daha önce bağış yaptıysanız 18-65 yaş aralığında, yapmadıysanız 60 yaşına kadar kan bağışı yapabilirsiniz. </p> </div>
+                        <div class="portfolio-item" id="item3"><br /><p class="icerik">0Rh+ kan grubuysanız tüm kan gruplarına kan verebilirsiniz</p> </div>
+                        <div class="portfolio-item" id="item8"><br /><a href="" class="img"><img src="~/Image/0.jpg" alt="" /></a></div>
+                        <div class="portfolio-item" id="item6"><br /> <a href="" class="img"><img src="~/Image/tartı.jpg" alt="" /></a></div>
+                        <div class="portfolio-item" id="item4"><br /><p class="icerik" id="icerik5">Vücut ağırlığınız en az 50 kg olmalıdır</p> </div>
+                        <div class="portfolio-item" id="item5"><br /><p class="icerik" id="icerik3"><br />Kadınlar bir yılda en çok 3 erkekler 4 kez kan bağışı yapabilir</p><br /> </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="dikkat" data-stellar-background-ratio="0.5">
+            <div id="content1">
+                <div class="container">
+
+                    <div class="anadiv">
+                        <h5>BAĞIŞTAN ÖNCE DİKKAT</h5>
+                        <div id="div">
+
+                            <div class="character">
+                                <div class="handle">
+                                    <div class="round-corner left"></div>
+                                    <div class="round-corner right"></div>
+                                </div>
+                                <div class="body">
+                                    <div class="blood">
+                                        <div class="shade"></div>
+                                    </div>
+                                    <div class="label">
+                                        <div class="line"></div>
+                                        <div class="line"></div>
+                                        <div class="line"></div>
+                                        <div class="line short"></div>
+                                    </div>
+                                    <div class="face">
+                                        <div class="eye left"></div>
+                                        <div class="eye right"></div>
+                                        <div class="smile"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+                        <div id="div" class="tesvikDikkat">
+                            <div class="container mt-2">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="card">
+                                            <img class="card-img-top" src="~/Image/DikkatTesvik/bagisoncesi.jpg" alt="" />
+                                            <img class="card-img-top" src="~/Image/DikkatTesvik/bagisoncesi.jpg" alt="" />
+                                            <div class="card-body">
+                                                <h5 class="card-title"></h5>
+                                                <p class="card-text"></p>
+                                            </div>
+                                            <div class="card-footer">
+                                                <i class="fas fa-arrow-circle-left fa-2x arrow"></i>
+                                                <i class="fas fa-arrow-circle-right fa-2x arrow"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+
+
+
+        <!-- FOOTER slider css içinde -->
+        @*<footer id="footer" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div class="row">
+                    <div>
+                        <h1 style="position: relative;right:200px;">KAN BAĞIŞI</h1>
+
+                        <div class="wrapper">
+                            <div class="counter col_one">
+                                <p class="count-text">BaĞışçı sayısı</p>
+                                <h2 class="timer count-title" id="count-number" data-to="570" data-speed="4000"></h2>
+                                <p class="count-text">İhtiyacımız olan..</p>
+                            </div>
+                        </div>
+                    </div>*@
+        @*<div class="col-md-6 col-sm-6">
+                    <ul class="social-icon">
+                        <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                        <li><a href="#" class="fa fa-twitter"></a></li>
+                        <li><a href="#" class="fa fa-instagram"></a></li>
+                    </ul>
+                </div>
+            </div>*@
+        @*</div>
+                </div>
+            </footer>*@
+
+    </div>
+</body>
+</html>
+<!-- SCRIPTS -->
+<script src="//static.codepen.io/assets/common/stopExecutionOnTimeout-41c52890748cd7143004e05d3c5f786c66b19939c4500ce446314d1748483e13.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="~/Js/KanMerkezi.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="~/Js/Slider.js"></script>
+<script src="~/Js/jquery.js"></script>
+<script src="~/Js/bootstrap.min.js"></script>
+<script src="~/Js/jquery.stellar.min.js"></script>
+<script src="~/Js/owl.carousel.min.js"></script>
+<script src="~/Js/smoothscroll.js"></script>
+<script src="~/Js/custom.js"></script>
+<script src="~/Js/footer.js"></script>
+

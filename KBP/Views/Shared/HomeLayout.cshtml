@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>KAN BAĞIŞ PLATFORMU</title>
+    <!--   Template 2106 Soft Landing http://www.tooplate.com/view/2106-soft-landing    -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="team" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="~/Css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Css/owl.carousel.css">
+    <link rel="stylesheet" href="~/Css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Css/font-awesome.min.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="~/Css/tooplate-style.css">
+    <style>
+        body {
+            background-color: #c61515;
+        }
+
+        #home {
+            background-color: #c61515;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- PRE LOADER -->
+    <section class="preloader">
+        <div class="spinner">
+
+            <span class="spinner-rotate"></span>
+
+        </div>
+    </section>
+
+    @RenderBody()
+    <!-- MENU -->
+    <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+
+                <!-- lOGO TEXT HERE -->
+                <a href="index.html" class="navbar-brand">KAN BAĞIŞ PLATFORMU</a>
+            </div>
+
+            <!-- MENU LINKS -->
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#home" class="smoothScroll">ANASAYFA</a></li>
+                    <li><a href="#duyuru" class="smoothScroll">DUYURULAR</a></li>
+                    <li><a href="#tesvik" class="smoothScroll">TEŞVİK</a></li>
+                    <li><a href="/Hastane/Register" class="smoothScroll">HASTANE</a></li>
+                    <li><a href="/KanMerkezi/RegisterKanMerkezi" class="smoothScroll">KAN MERKEZİ</a></li>
+                    <li><a href="/Bagisci/Register" class="smoothScroll">ÜYE</a></li>
+
+
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FEATURE -->
+    <section id="home" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-offset-3 col-md-6 col-sm-12">
+                    <div class="home-info">
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FEATURE -->
+    <section id="duyuru" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="tesvik" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- CONTACT -->
+    <section id="contact" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-offset-1 col-md-10 col-sm-12">
+                    <form id="contact-form" role="form" action="" method="post">
+                        <div class="section-title">
+                            <h1>Görüş ve önerilerinizi bizimle paylaşın...</h1>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4">
+                            <input type="text" class="form-control" placeholder="İsim" name="name" required="">
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <input type="email" class="form-control" placeholder="Email" name="email" required="">
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <input type="submit" class="form-control" name="send message" value="Gönder">
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <textarea class="form-control" rows="8" placeholder="Görüş ve önerileriniz.." name="message" required=""></textarea>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer id="footer" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+
+
+
+                <div class="col-md-6 col-sm-6">
+                    <ul class="social-icon">
+                        <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                        <li><a href="#" class="fa fa-twitter"></a></li>
+                        <li><a href="#" class="fa fa-instagram"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- SCRIPTS -->
+    <script src="~/Js/jquery.js"></script>
+    <script src="~/Js/bootstrap.min.js"></script>
+    <script src="~/Js/jquery.stellar.min.js"></script>
+    <script src="~/Js/owl.carousel.min.js"></script>
+    <script src="~/Js/smoothscroll.js"></script>
+    <script src="~/Js/custom.js"></script>
+
+</body>
+</html>

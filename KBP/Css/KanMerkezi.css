@@ -1,0 +1,68 @@
+﻿/*@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700');*/
+
+.section {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 80em;
+    height: 80em;
+}
+
+.curtain {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    opacity: .5;
+    background: -webkit-linear-gradient(top, #6b0000, white);
+}
+
+.title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    font-family: 'Josefin Sans';
+    font-size: 3vw;
+    color: white;
+    text-shadow: 0px 0px 10px white;
+    letter-spacing: 3vw;
+    text-transform: uppercase;
+}
+
+.blood-text {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    line-height: 1.5;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans';
+    text-shadow: 0 0 10px #6b0000;
+    font-size: 15px;
+    color: #6b0000;
+    transition: color .3s ease-in-out;
+}
+
+.nep-highlight {
+    color: red;
+    text-shadow: 0 0 10px red;
+}
+
+.text-hover {
+    transition: color .2s ease-in-out, text-shadow .3s ease-in-out;
+}
+
+    .text-hover:hover {
+        text-shadow: 0 0 0px #6b0000;
+        color: #6b0000;
+    }
+
+.clean-link {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
